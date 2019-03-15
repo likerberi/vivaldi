@@ -14,17 +14,6 @@ public class CenterMakingActivity extends AppCompatActivity {
 
     TableLayout tables;
     private Button editButton, addButton, sortButton;
-    String[] samples = {"Dow_30", "23755.10", "-0.51%", "Winter",
-            "S&P 500", "2569.08", "-0.61%", "Winter",
-            "Nasdaq", "6896.73", "-0.87%", "Winter",
-            "Crude_Oil", "51.59", "-1.47%", "Fall",
-            "Gold", "1292.60", "+0.05%", "Spring",
-            "Silver", "15.69", "-0.05%", "Spring",
-            "EUR/USD", "1.1518", "-1.10%", "Summer",
-            "10-Yr Bond", "2.698", "-1.10%", "Summer",
-            "Vix", "21.08", "+6.41%", "Summer",
-            "USD/JPY", "108.121", "-0.04%", "Summer",
-            "Apple_Inc", "151.90", "-0.92%", "Winter",};
 
     String[] sampleTitles = {"DOW", "S&P", "NASDAQ", "CRUDE_OIL", "GOLD", "SILVER", "EUR/USD", "10Yr_BOND", "VIX", "USD/JPY", "APPLE"};
 
@@ -70,6 +59,7 @@ public class CenterMakingActivity extends AppCompatActivity {
             }
         });
 
+        /*
         for(int idx=0; idx<samples.length; idx++) {
             TableRow sample1 = new TableRow(CenterMakingActivity.this);
             sample1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
@@ -82,7 +72,7 @@ public class CenterMakingActivity extends AppCompatActivity {
             tempText.setText(samples[idx]);
             sample1.addView(tempText);
         }
-
+        */
 
     }
 }

@@ -46,7 +46,7 @@ public class OverallActivity extends AppCompatActivity {
                 // AlertDialog
 
                 // Create a new table row.
-                TableRow tableRow = new TableRow(context);
+                final TableRow tableRow = new TableRow(context);
 
                 // Set new table row layout parameters.
                 TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
@@ -67,18 +67,25 @@ public class OverallActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         itemView.setText(sampleTitles[i]);
                         itemView.setTextSize(20);
-
+                        itemView.setPadding(5, 2, 0, 0);
 
                         //repeatShow.setGravity(Gravity.END);
                     }
                 }).show();
 
+
+
                 EditText priceText = new EditText(context);
-                priceText.setPadding(5, 2, 0, 0);
-                priceText.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                priceText.setInputType(InputType.TYPE_CLASS_NUMBER);
+                if (priceText.getText() != null) {
+                   priceText.setBackground(null);
+                }
 
                 EditText changeText = new EditText(context);
-                //priceText.setInputType(InputType.);
+                changeText.setInputType(InputType.TYPE_CLASS_NUMBER);
+                if (changeText.getText() != null) {
+                    changeText.setBackground(null);
+                }
 
                 final TextView seasonView = new TextView(context);
 
@@ -108,6 +115,15 @@ public class OverallActivity extends AppCompatActivity {
                     }
                 });
 
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        tables.setColumnStretchable(tables.indexOfChild(view) ,true);
+                        // need other layout...  intent -> intent?
+                    }
+                });
+
+                //tables.setColumnStretchable();
                 tables.addView(tableRow);
 
                 itemView.setOnClickListener(new View.OnClickListener() {
