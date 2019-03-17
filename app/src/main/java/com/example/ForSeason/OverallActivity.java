@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -90,6 +91,7 @@ public class OverallActivity extends AppCompatActivity {
                 final TextView seasonView = new TextView(context);
 
                 seasonView.setBackground(getResources().getDrawable(R.drawable.equalizer));
+                seasonView.setGravity(Gravity.CENTER);
 
                 tableRow.addView(itemView, 0);
                 tableRow.addView(priceText, 1);
