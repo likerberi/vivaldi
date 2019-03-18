@@ -76,13 +76,13 @@ public class OverallActivity extends AppCompatActivity {
 
 
 
-                EditText priceText = new EditText(context);
+                final EditText priceText = new EditText(context);
                 priceText.setInputType(InputType.TYPE_CLASS_NUMBER);
                 if (priceText.getText() != null) {
                    priceText.setBackground(null);
                 }
 
-                EditText changeText = new EditText(context);
+                final EditText changeText = new EditText(context);
                 changeText.setInputType(InputType.TYPE_CLASS_NUMBER);
                 if (changeText.getText() != null) {
                     changeText.setBackground(null);
@@ -100,7 +100,7 @@ public class OverallActivity extends AppCompatActivity {
 
                 seasonView.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(final View view) {
                         AlertDialog.Builder repeatDialog = new AlertDialog.Builder(OverallActivity.this, android.R.style.Widget_Material);
                         repeatDialog.setTitle("Season Select").setItems(forSeasons, new DialogInterface.OnClickListener() {
 
@@ -110,30 +110,24 @@ public class OverallActivity extends AppCompatActivity {
                                 seasonView.setTextSize(20);
                                 seasonView.setBackground(null);
 
+                                priceText.setText(Integer.toString(view.getId())); // -1
 
+                                //changeText.setText(tableRow.getVirtualChildCount());
+                                //changeText.setText(tables.getChildCount()); die
+                                //priceText.setText(tables.indexOfChild(tableRow));
                                 //repeatShow.setGravity(Gravity.END);
                             }
                         }).show();
                     }
                 });
 
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        tables.setColumnStretchable(tables.indexOfChild(view) ,true);
+                //priceText.setText(tables.indexOfChild(view)); => DIE...
+                        //tables.setColumnStretchable(tables.indexOfChild(view) ,true);
                         // need other layout...  intent -> intent?
-                    }
-                });
 
                 //tables.setColumnStretchable();
                 tables.addView(tableRow);
 
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                    }
-                });
             }
         });
     }
