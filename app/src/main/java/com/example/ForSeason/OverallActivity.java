@@ -69,6 +69,7 @@ public class OverallActivity extends AppCompatActivity {
                         itemView.setText(sampleTitles[i]);
                         itemView.setTextSize(20);
                         itemView.setPadding(5, 2, 0, 0);
+                        //sampleTitles[i].substring(i);
 
                         //repeatShow.setGravity(Gravity.END);
                     }
