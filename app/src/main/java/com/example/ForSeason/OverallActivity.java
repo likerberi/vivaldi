@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -72,9 +73,19 @@ public class OverallActivity extends AppCompatActivity {
                         //sampleTitles[i].substring(i);
 
                         //repeatShow.setGravity(Gravity.END);
+
                     }
                 }).show();
 
+                itemView.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        // Adapter 불러야 할 것 같은데..
+                        // LinearLayout ~ setVisibility //
+                        // from.. DB.
+                    }
+                });
 
 
                 final EditText priceText = new EditText(context);
