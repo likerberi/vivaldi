@@ -2,6 +2,7 @@ package com.example.ForSeason;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class OverallActivity extends AppCompatActivity {
 
@@ -36,6 +40,18 @@ public class OverallActivity extends AppCompatActivity {
         editButton = findViewById(R.id.editButton);
         addButton = findViewById(R.id.addButton);
         sortButton = findViewById(R.id.sortButton);
+
+        sortButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(OverallActivity.this, "TEST", Toast.LENGTH_SHORT).show();
+
+                Intent outIntent = new Intent(OverallActivity.this, MainActivity.class);
+                startActivity(outIntent);
+                finish();
+            }
+        });
 
         editButton.setOnClickListener(new View.OnClickListener() {
 

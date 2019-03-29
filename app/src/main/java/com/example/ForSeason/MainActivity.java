@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent goIntent = new Intent(MainActivity.this, CheckActivity.class);
+                Intent goIntent = new Intent(MainActivity.this, TestActivity.class);
                 startActivity(goIntent);
                 finish();
             }
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent goIntent = new Intent(MainActivity.this, CheckActivity.class);
+                Intent goIntent = new Intent(MainActivity.this, TestActivity.class);
                 startActivity(goIntent);
                 finish();
             }
@@ -51,9 +51,10 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        Intent goIntent = new Intent(MainActivity.this, OverallActivity.class);
-        startActivity(goIntent);
-        finish();
+        // disabled for checking login-process.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        Intent goIntent = new Intent(MainActivity.this, OverallActivity.class);
+//        startActivity(goIntent);
+//        finish();
     }
 }
