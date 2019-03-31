@@ -26,6 +26,7 @@ public class ItemListView extends AppCompatActivity {
 
         //ItemListAdapter itemListAdapter = new ItemListAdapter(getApplicationContext()); what is it?
         StockAdapter adapter = new StockAdapter();
+        // adapter.addItem("")
         listView.setAdapter(adapter);
 
     }
@@ -56,7 +57,15 @@ public class ItemListView extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup viewGroup) {
-            return null;
+            ItemListAdapter view = new ItemListAdapter(getApplicationContext());
+
+            ItemList item = itemLists.get(position);
+            view.setName(item.getItemName());
+            view.setChange(item.getItemChange());
+            view.setPrice(item.getItemPrice());
+            view.setSeason(item.getItemSeason());
+
+            return view;
         }
     }
 }

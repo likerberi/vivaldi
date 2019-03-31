@@ -3,8 +3,8 @@ package com.example.ForSeason;
 public class ItemList {
 
     String itemName;
-    float itemPrice;
-    float itemChange;
+    String itemPrice;
+    String itemChange;
     String itemSeason;
 
     @Override
@@ -17,7 +17,7 @@ public class ItemList {
                 '}';
     }
 
-    public ItemList(String itemName, float itemPrice, float itemChange, String itemSeason) {
+    public ItemList(String itemName, String itemPrice, String itemChange, String itemSeason) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.itemChange = itemChange;
@@ -32,19 +32,19 @@ public class ItemList {
         this.itemName = itemName;
     }
 
-    public float getItemPrice() {
+    public String getItemPrice() {
         return itemPrice;
     }
 
-    public void setItemPrice(float itemPrice) {
+    public void setItemPrice(String itemPrice) {
         this.itemPrice = itemPrice;
     }
 
-    public float getItemChange() {
+    public String getItemChange() {
         return itemChange;
     }
 
-    public void setItemChange(float itemChange) {
+    public void setItemChange(String itemChange) {
         this.itemChange = itemChange;
     }
 

@@ -40,12 +40,12 @@ public class ItemListAdapter extends LinearLayout {
         nameText.setText(text);
     }
 
-    public void setPrice(String text){
-        priceText.setText(text);
+    public void setPrice(String price){
+        priceText.setText(price);
     }
 
-    public void setChange(String text){
-        changeText.setText(text);
+    public void setChange(String change){
+        changeText.setText(change);
     }
 
     public void setSeason(String text){
