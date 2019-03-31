@@ -7,9 +7,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 public class ItemListView extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,21 +24,28 @@ public class ItemListView extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.itemViewList);
 
+        //ItemListAdapter itemListAdapter = new ItemListAdapter(getApplicationContext()); what is it?
+        StockAdapter adapter = new StockAdapter();
+        listView.setAdapter(adapter);
 
     }
 
     class StockAdapter extends BaseAdapter {
 
-        ArrayList<ItemList> itemList = new ArrayList<ItemList>();
+        ArrayList<ItemList> itemLists = new ArrayList<ItemList>();
 
         @Override
         public int getCount() {
-            return itemList.size();
+            return itemLists.size();
+        }
+
+        public void addItem(ItemList itemList) {
+            itemLists.add(itemList);
         }
 
         @Override
         public Object getItem(int position) {
-            return itemList.get(position);
+            return itemLists.get(position);
         }
 
         @Override
