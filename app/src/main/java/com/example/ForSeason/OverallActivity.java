@@ -41,6 +41,18 @@ public class OverallActivity extends AppCompatActivity {
         addButton = findViewById(R.id.addButton);
         sortButton = findViewById(R.id.sortButton);
 
+        addButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent goIntent = new Intent(OverallActivity.this, ItemListView.class);
+                startActivity(goIntent);
+                finish();
+                Toast.makeText(OverallActivity.this, "TEST", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         sortButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
