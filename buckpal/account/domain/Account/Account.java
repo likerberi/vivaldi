@@ -23,8 +23,17 @@ public class Account {
     }
     private boolean mayWithdraw(Money money) {
         return Money.add(this.calculateBalance(), mony.negate()).isPositive();
-
     }
 
-    public boolean deposit(){}
+    public boolean deposit(Money money, AccountId sourceAccountId) {
+        Activity deposit = new Activity(
+                this.id,
+                sourceAccountId,
+                this.id,
+                LocalDateTime.now(),
+                money
+        );
+        this.activityWindow.addActivity(deposit);
+        return true;
+    }
 }
