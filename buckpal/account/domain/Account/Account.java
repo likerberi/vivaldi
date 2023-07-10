@@ -1,10 +1,18 @@
 package buckpal.domain;
 
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Account {
     private AccountId id;
     private Money baselineBalance;
     private ActivityWindow activityWindow;
 
+    public static Acount withoutId(Money baselineBalance, ActivityWindow activityWindow) {
+        return new Account(null, baselineBalance, activityWindow);
+    }
+
+    public static Account withId(AccountId accountId, Money baselineBalance, ActivityWindow activityWindow) {
+        return new Account(accountId, baselineBalance, accountId);
+    }
     public Money CalculateBalance() {
         return Money.add(
             this.baselineBalance,
