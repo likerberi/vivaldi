@@ -1,4 +1,5 @@
 import java.time.Duration;
+import java.time.LocalDateTime;
 
 public class Movie {
     private String title;
@@ -23,7 +24,10 @@ public class Movie {
     }
 
     public Money calculateMovieFee(Screening screening) {
-        return fee.minus(discountPolicy.calculateDiscountAmount(screening));
+        if (movieType != MovieType.AMOUNT_DISCOUNT) {
+            throw new IllegalArgumentException();
+        }
+        return fee.minus(discountAmount);
     }
 
     public void setFee(Money fee) {
@@ -60,5 +64,20 @@ public class Movie {
 
     public void setDiscountPercent(double discountPercent) {
         this.discountPercent = discountPercent;
+    }
+
+    public boolean isDiscountable(LocalDateTime whenScreened, int sequence) {
+        for(DiscountCondition condition: discountConditions) {
+            if(condition.getType() == DiscountConditionType.PERIOD) {
+                if(condition.isDiscountable(whenScreened.getDayOfWeek(), whenScreened.toLocalDate())) {
+                    return true;
+                } else {
+                    if (condition.isDiscountable(sequence)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
