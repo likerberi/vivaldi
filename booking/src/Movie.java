@@ -80,4 +80,11 @@ public class Movie {
         }
         return false;
     }
+
+    public Money calculateMovieFee(Screening screening) {
+        if(isDiscountable(screening)) {
+            return fee.minus(calculateDiscountAmount());
+        }
+        return fee;
+    }
 }

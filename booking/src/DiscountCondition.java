@@ -9,6 +9,21 @@ public class DiscountCondition {
     private LocalTime startTime;
     private LocalTime endTime;
 
+    public boolean isSatisfiedBy(Screening screening {
+        if (type==DiscountConditionType.PERIOD) {
+            return isSatisfiedByPeriod(screening);
+        }
+        return isSatisfiedBySequence(screening);
+    }
+
+    private boolean isSatisfiedByPeriod(Screening screening) {
+
+    }
+
+    private boolean isSatisfiedBySequence(Screening screening) {
+        return sequence == screening.getSequence();
+    }
+
     public DiscountConditionType getType() {
         return type;
     }
